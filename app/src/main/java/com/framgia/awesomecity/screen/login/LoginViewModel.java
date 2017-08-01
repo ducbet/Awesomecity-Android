@@ -83,7 +83,8 @@ public class LoginViewModel extends BaseObservable
 
     @Override
     public void onLoginSuccess() {
-
+        setErrorMessage(Values.LOGIN_SUCCESS);
+        notifyPropertyChanged(BR.errorMessage);
     }
 
     public void onLoginButtonClicked(View view) {

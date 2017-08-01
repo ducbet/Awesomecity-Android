@@ -10,7 +10,7 @@ public class LoginResponse {
 
     @SerializedName("messages")
     private String mMessage;
-    @SerializedName("user")
+    @SerializedName("staff")
     private UserResponse mUserResponse;
 
     public UserResponse getUserResponse() {

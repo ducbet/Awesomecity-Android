@@ -23,5 +23,6 @@ interface LoginContract {
      */
     interface Presenter extends BasePresenter {
         void login(LoginModel signin);
+        void checkIfLoggedIn();
     }
 }
