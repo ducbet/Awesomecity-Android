@@ -1,1 +1,2 @@
-# Awesomecity-Android
+# awesomecity.android
+awesomecity.android
