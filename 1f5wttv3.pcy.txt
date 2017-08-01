@@ -1,0 +1,34 @@
+﻿Create table
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    ToanDoan <toandoan.coder@gmail.c>
+# Date:      Tue Aug 1 10:26:22 2017 +0700
+#
+# On branch table_list_screen
+# Changes to be committed:
+#	modified:   app/src/main/java/com/framgia/awesomecity/data/model/TableModel.java
+#	new file:   app/src/main/java/com/framgia/awesomecity/screen/BaseAdapter.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/login/LoginActivity.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/login/LoginPresenter.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/login/LoginViewModel.java
+#	new file:   app/src/main/java/com/framgia/awesomecity/screen/main/ItemTableViewModel.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/main/MainActivity.java
+#	new file:   app/src/main/java/com/framgia/awesomecity/screen/main/MainActivityAdapter.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/main/MainActivityContract.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/main/MainActivityPresenter.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/screen/main/MainActivityViewModel.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/service/LoginResponse.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/service/LoginService.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/service/ServiceGenerator.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/utils/BindingUtils.java
+#	new file:   app/src/main/java/com/framgia/awesomecity/utils/ItemDecoration.java
+#	modified:   app/src/main/java/com/framgia/awesomecity/utils/Values.java
+#	modified:   app/src/main/res/layout/activity_login.xml
+#	modified:   app/src/main/res/layout/activity_main.xml
+#	new file:   app/src/main/res/layout/item_table.xml
+#	modified:   app/src/main/res/values/dimens.xml
+#	modified:   scripts/saddler.sh
+#
+

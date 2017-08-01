@@ -7,10 +7,12 @@
     >
 
     <data>
+
         <variable
             name="viewModel"
             type="com.framgia.awesomecity.screen.main.MainActivityViewModel"
             />
+
         <import type="com.framgia.awesomecity.utils.LayoutManagers"/>
     </data>
 
@@ -23,13 +25,19 @@
         android:paddingTop="@dimen/dp_5"
         >
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_refresh"
+            android:onClick="@{viewModel::onRefresh}"/>
+
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_10"
+            bind:adapter="@{viewModel.adapter}"
             bind:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
             bind:spanCount="@integer/spanCount"
             />
-
     </LinearLayout>
 </layout>

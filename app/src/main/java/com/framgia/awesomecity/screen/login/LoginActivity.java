@@ -1,5 +1,4 @@
 package com.framgia.awesomecity.screen.login;
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
@@ -19,10 +18,10 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new LoginViewModel();
+        mViewModel = new LoginViewModel(this);
 
         LoginContract.Presenter presenter =
-                new LoginPresenter(mViewModel, this);
+                new LoginPresenter(mViewModel);
         mViewModel.setPresenter(presenter);
 
         ActivityLoginBinding binding =

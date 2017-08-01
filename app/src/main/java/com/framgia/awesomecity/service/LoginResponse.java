@@ -11,6 +11,7 @@ public class LoginResponse {
     @SerializedName("messages")
     private String mMessage;
     @SerializedName("staff")
+
     private UserResponse mUserResponse;
 
     public UserResponse getUserResponse() {
@@ -30,7 +31,11 @@ public class LoginResponse {
     }
 
     public class UserResponse {
+
+        @SerializedName("email")
         private String mEmail;
+        @SerializedName("authen_token")
+
         private String mToken;
 
         public String getEmail() {
