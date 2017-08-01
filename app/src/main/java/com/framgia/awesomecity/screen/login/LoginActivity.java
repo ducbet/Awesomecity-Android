@@ -1,6 +1,5 @@
 package com.framgia.awesomecity.screen.login;
 
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
@@ -30,6 +29,7 @@ public class LoginActivity extends BaseActivity {
                 DataBindingUtil.setContentView(this, R.layout.activity_login);
         binding.setViewModel((LoginViewModel) mViewModel);
 
+        removeTitleBar();
     }
 
     @Override
