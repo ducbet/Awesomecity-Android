@@ -12,5 +12,6 @@ public class BindingUtils {
     @BindingAdapter("adapter")
     public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter adapter) {
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new ItemDecoration(10));
     }
 }
