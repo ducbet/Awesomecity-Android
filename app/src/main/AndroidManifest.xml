@@ -22,13 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".screen.main.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
+        <activity android:name=".screen.orders.OrdersActivity">
+
         </activity>
 
     </application>

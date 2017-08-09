@@ -6,10 +6,8 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -25,23 +23,19 @@ public class ServiceGenerator {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
-    private static HttpLoggingInterceptor sHttpLoggingInterceptor = new HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY);
+    private static OkHttpClient.Builder sOkHttpClientBuilder = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request original = chain.request();
 
-    private static OkHttpClient.Builder sOkHttpClientBuilder = new OkHttpClient.Builder()
-            .addInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request original = chain.request();
-
-                    Request request = original.newBuilder()
-                            .header("Content-Type", "application/json")
-                            .method(original.method(), original.body())
-                            .build();
-                    return chain.proceed(request);
-                }
-            });
-
+            Request request = original.newBuilder()
+                    .header("Content-Type", "application/json")
+                    .header("AUTHENTICATE-TOKEN", "supersecrettoken1")
+                    .method(original.method(), original.body())
+                    .build();
+            return chain.proceed(request);
+        }
+    });
     private static OkHttpClient sOkHttpClient = sOkHttpClientBuilder.build();
 
     public static <T> T createService(Class<T> serviceClass) {

@@ -1,15 +1,12 @@
 package com.framgia.awesomecity.data.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by pnam2 on 7/21/2017.
  */
 
-public class TableModel implements Parcelable {
+public class TableModel {
 
     @SerializedName("id")
     private int mId;
@@ -19,25 +16,12 @@ public class TableModel implements Parcelable {
     private int mCapacity;
     @SerializedName("available")
     private boolean mAvailable;
-
-    protected TableModel(Parcel in) {
-        mId = in.readInt();
-        mCode = in.readString();
-        mCapacity = in.readInt();
-        mAvailable = in.readByte() != 0;
-    }
-
-    public static final Creator<TableModel> CREATOR = new Creator<TableModel>() {
-        @Override
-        public TableModel createFromParcel(Parcel in) {
-            return new TableModel(in);
-        }
-
-        @Override
-        public TableModel[] newArray(int size) {
-            return new TableModel[size];
-        }
-    };
+    @SerializedName("order_id")
+    private int mOrderId;
+    @SerializedName("posX")
+    private double mPosX;
+    @SerializedName("posY")
+    private double mPosY;
 
     public int getId() {
         return mId;
@@ -71,17 +55,27 @@ public class TableModel implements Parcelable {
         mAvailable = available;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getOrderId() {
+        return mOrderId;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(mId);
-        parcel.writeString(mCode);
-        parcel.writeInt(mCapacity);
-        parcel.writeByte((byte) (mAvailable ? 1 : 0));
+    public void setOrderId(int orderId) {
+        mOrderId = orderId;
     }
 
+    public double getPosX() {
+        return mPosX;
+    }
+
+    public void setPosX(double posX) {
+        mPosX = posX;
+    }
+
+    public double getPosY() {
+        return mPosY;
+    }
+
+    public void setPosY(double posY) {
+        mPosY = posY;
+    }
 }
