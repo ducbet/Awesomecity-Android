@@ -4,4 +4,5 @@
     <string name="text_username_hint">Enter an username</string>
     <string name="text_password_hint">Password</string>
     <string name="text_refresh">Refresh</string>
+    <string name="error_fetch_data">No data available.</string>
 </resources>
