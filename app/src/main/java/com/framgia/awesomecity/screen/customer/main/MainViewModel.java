@@ -2,14 +2,17 @@ package com.framgia.awesomecity.screen.customer.main;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+
+import com.framgia.awesomecity.R;
+import com.framgia.awesomecity.screen.customer.booking.BookingFragment;
 
 /**
  * Exposes the data to be used in the Main screen.
  */
 
 public class MainViewModel extends BaseObservable implements MainContract.ViewModel {
-
     private MainContract.Presenter mPresenter;
     private AppCompatActivity mActivity;
 
@@ -20,6 +23,7 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
     @Override
     public void onStart() {
         mPresenter.onStart();
+        setFragment();
     }
 
     @Override
@@ -43,5 +47,13 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
 
     public void setActivity(AppCompatActivity activity) {
         mActivity = activity;
+    }
+
+    public void setFragment() {
+        Fragment fragment = new BookingFragment();
+        mActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame_container, fragment)
+                .commit();
     }
 }

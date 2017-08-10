@@ -25,7 +25,7 @@ public class BookingFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new BookingViewModel();
+        mViewModel = new BookingViewModel(getContext());
 
         BookingContract.Presenter presenter =
                 new BookingPresenter(mViewModel);
