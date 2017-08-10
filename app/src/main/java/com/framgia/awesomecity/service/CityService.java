@@ -45,4 +45,10 @@ public interface CityService {
 
     @GET("dishes/{dishId}")
     Observable<Dish> getDish(@Path("dishId") int dishId);
+
+    @GET("order_dishes")
+    Observable<List<OrderDish>> getOrderDishes();
+
+    @GET("order_dishes/{orderDishId}")
+    Observable<OrderDish> getOrderDish(@Path("orderDishId") int orderDishId);
 }
