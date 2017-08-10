@@ -2,7 +2,6 @@ package com.framgia.awesomecity.screen.login;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.View;
 import com.android.databinding.library.baseAdapters.BR;
 import com.framgia.awesomecity.data.model.LoginModel;
 import com.framgia.awesomecity.data.model.UserModel;
-import com.framgia.awesomecity.screen.main.MainActivity;
 import com.framgia.awesomecity.utils.Values;
 
 /**
@@ -89,17 +87,10 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
     public void onLoginSuccess(String token) {
         setErrorMessage(Values.LOGIN_SUCCESS);
         notifyPropertyChanged(BR.errorMessage);
-        getProfileIntent(mContext, token);
     }
 
     public void onLoginButtonClicked(View view) {
         mPresenter.login(new LoginModel(new UserModel(mUsername, mPassword)));
     }
 
-    public void getProfileIntent(Context context, String token) {
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra(Values.EXTRA_TOKEN, token);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(intent);
-    }
 }
