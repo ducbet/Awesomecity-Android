@@ -13,4 +13,6 @@ import io.reactivex.Observable;
 public interface TablesDataSource {
 
     Observable<List<TableModel>> getTables();
+
+    Observable<TableModel> getTable(int tableId);
 }

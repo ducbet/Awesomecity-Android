@@ -25,6 +25,9 @@ public interface CityService {
     @GET("orders/{orderId}")
     Observable<Order> getOrder(@Path("orderId") int orderId);
 
+    @GET("orders/{orderId}/order_dishes")
+    Observable<List<OrderDish>> getOrderDishes(@Path("orderId") int orderId);
+
     @POST("orders/{orderId}")
     Observable<Boolean> doneOrderDish(@Path("orderId") int orderId, @Body OrderDish orderDish);
 
@@ -33,6 +36,12 @@ public interface CityService {
 
     @GET("tables")
     Observable<List<TableModel>> getTables();
+
+    @GET("tables/{tableId")
+    Observable<TableModel> getTable(@Path("tableId") int tableId);
+
+    @GET("dishes")
+    Observable<List<Dish>> getDishes();
 
     @GET("dishes/{dishId}")
     Observable<Dish> getDish(@Path("dishId") int dishId);
