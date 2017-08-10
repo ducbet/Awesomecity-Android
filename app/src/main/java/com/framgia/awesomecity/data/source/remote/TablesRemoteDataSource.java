@@ -25,4 +25,9 @@ public class TablesRemoteDataSource implements TablesDataSource {
     public Observable<List<TableModel>> getTables() {
         return mCityService.getTables();
     }
+
+    @Override
+    public Observable<TableModel> getTable(int tableId) {
+        return mCityService.getTable(tableId);
+    }
 }

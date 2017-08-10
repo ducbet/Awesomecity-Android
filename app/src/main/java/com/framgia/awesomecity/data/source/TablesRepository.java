@@ -31,4 +31,9 @@ public class TablesRepository implements TablesDataSource {
     public Observable<List<TableModel>> getTables() {
         return mTablesRemoteDataSource.getTables();
     }
+
+    @Override
+    public Observable<TableModel> getTable(int tableId) {
+        return mTablesRemoteDataSource.getTable(tableId);
+    }
 }
