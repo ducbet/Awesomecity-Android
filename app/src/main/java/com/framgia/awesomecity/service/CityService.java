@@ -19,7 +19,7 @@ import retrofit2.http.Path;
 
 public interface CityService {
 
-    @GET("orders")
+    @GET("orders?status=serving")
     Observable<List<Order>> getOrders();
 
     @GET("orders/{orderId}")
