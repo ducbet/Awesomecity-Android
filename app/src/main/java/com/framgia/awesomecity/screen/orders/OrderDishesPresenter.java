@@ -1,7 +1,7 @@
 package com.framgia.awesomecity.screen.orders;
 
-import com.framgia.awesomecity.data.model.Order;
-import com.framgia.awesomecity.data.source.OrdersRepository;
+import com.framgia.awesomecity.data.model.OrderDish;
+import com.framgia.awesomecity.data.source.OrderDishesRepository;
 
 import java.util.List;
 
@@ -12,24 +12,25 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Listens to user actions from the UI ({@link OrdersActivity}), retrieves the data and updates
- * the UI as required.
+ * Created by lamvu on 8/9/2017.
  */
-final class OrdersPresenter implements OrdersContract.Presenter {
 
-    private final OrdersContract.ViewModel mViewModel;
+public class OrderDishesPresenter implements OrderDishesContract.Presenter {
 
-    private OrdersRepository mOrdersRepository;
+    private final OrderDishesContract.ViewModel mViewModel;
+
+    private OrderDishesRepository mOrderDishesRepository;
 
     private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
-    public OrdersPresenter(OrdersContract.ViewModel viewModel) {
+    public OrderDishesPresenter(OrderDishesContract.ViewModel viewModel) {
         mViewModel = viewModel;
-        mOrdersRepository = OrdersRepository.getInstance();
+        mOrderDishesRepository = OrderDishesRepository.getInstance();
     }
 
     @Override
     public void onStart() {
+
     }
 
     @Override
@@ -39,23 +40,23 @@ final class OrdersPresenter implements OrdersContract.Presenter {
     }
 
     @Override
-    public void getOrders() {
-        fetchOrders();
+    public void getOrderDishes() {
+        fetchOrderDishes();
     }
 
-    private void fetchOrders(){
-        mCompositeDisposable.add(mOrdersRepository.getOrders()
+    private void fetchOrderDishes(){
+        mCompositeDisposable.add(mOrderDishesRepository.getOrderDishes()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver<List<Order>>() {
+                .subscribeWith(new DisposableObserver<List<OrderDish>>() {
                     @Override
-                    public void onNext(@NonNull List<Order> orders) {
-                        mViewModel.onGetOrdersSuccess(orders);
+                    public void onNext(@NonNull List<OrderDish> orderDishes) {
+                        mViewModel.onGetOrderDishesSuccess(orderDishes);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        mViewModel.onGetOrdersError(e.getMessage());
+                        mViewModel.onGetOrderDishesError(e.getMessage());
                     }
 
                     @Override
