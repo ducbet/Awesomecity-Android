@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by pnam2 on 7/21/2017.
  */
 
-public class TableModel {
+public class Table {
 
     @SerializedName("id")
     private int mId;
@@ -22,6 +22,16 @@ public class TableModel {
     private double mPosX;
     @SerializedName("posY")
     private double mPosY;
+
+    public Table(int id, String code, int capacity, boolean available, int orderId, double posX, double posY) {
+        mId = id;
+        mCode = code;
+        mCapacity = capacity;
+        mAvailable = available;
+        mOrderId = orderId;
+        mPosX = posX;
+        mPosY = posY;
+    }
 
     public int getId() {
         return mId;

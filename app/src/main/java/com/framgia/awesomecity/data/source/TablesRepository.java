@@ -1,6 +1,6 @@
 package com.framgia.awesomecity.data.source;
 
-import com.framgia.awesomecity.data.model.TableModel;
+import com.framgia.awesomecity.data.model.Table;
 import com.framgia.awesomecity.data.source.remote.TablesRemoteDataSource;
 
 import java.util.List;
@@ -28,12 +28,12 @@ public class TablesRepository implements TablesDataSource {
     }
 
     @Override
-    public Observable<List<TableModel>> getTables() {
+    public Observable<List<Table>> getTables() {
         return mTablesRemoteDataSource.getTables();
     }
 
     @Override
-    public Observable<TableModel> getTable(int tableId) {
+    public Observable<Table> getTable(int tableId) {
         return mTablesRemoteDataSource.getTable(tableId);
     }
 }

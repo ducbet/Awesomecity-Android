@@ -3,15 +3,11 @@ package com.framgia.awesomecity.screen.login;
 import android.databinding.BaseObservable;
 
 import com.framgia.awesomecity.data.model.LoginModel;
-import com.framgia.awesomecity.data.model.TableModel;
 import com.framgia.awesomecity.service.LoginResponse;
 import com.framgia.awesomecity.service.LoginService;
 import com.framgia.awesomecity.service.ServiceGenerator;
 import com.framgia.awesomecity.utils.Values;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;

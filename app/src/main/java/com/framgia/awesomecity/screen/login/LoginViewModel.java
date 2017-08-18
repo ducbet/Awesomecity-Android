@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.framgia.awesomecity.data.model.LoginModel;
-import com.framgia.awesomecity.data.model.UserModel;
+import com.framgia.awesomecity.data.model.User;
 import com.framgia.awesomecity.utils.Values;
 
 /**
@@ -90,7 +90,7 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
     }
 
     public void onLoginButtonClicked(View view) {
-        mPresenter.login(new LoginModel(new UserModel(mUsername, mPassword)));
+        mPresenter.login(new LoginModel(new User(mUsername, mPassword)));
     }
 
 }
