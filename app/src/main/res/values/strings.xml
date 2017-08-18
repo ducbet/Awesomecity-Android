@@ -5,4 +5,7 @@
     <string name="text_password_hint">Password</string>
     <string name="text_refresh">Refresh</string>
     <string name="error_fetch_data">No data available.</string>
+    <string name="item_book_table">Book Table</string>
+    <string name="item_menu">Menu</string>
+    <string name="item_your_order">Your Order</string>
 </resources>
