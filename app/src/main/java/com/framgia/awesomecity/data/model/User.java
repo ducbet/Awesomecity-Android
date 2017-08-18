@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName;
  * Created by pnam2 on 7/26/2017.
  */
 
-public class UserModel {
+public class User {
     @SerializedName("email")
     private String mUsername;
     @SerializedName("password")
     private String mPassword;
 
-    public UserModel(String username, String password) {
+    public User(String username, String password) {
         mUsername = username;
         mPassword = password;
     }

@@ -10,18 +10,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginModel extends BaseObservable {
     @SerializedName("sign_in")
-    private UserModel mUserModel;
+    private User mUser;
 
-    public LoginModel(UserModel userModel) {
-        mUserModel = userModel;
+    public LoginModel(User user) {
+        mUser = user;
     }
 
-    public UserModel getUserModel() {
-        return mUserModel;
+    public User getUser() {
+        return mUser;
     }
 
-    public void setUserModel(UserModel userModel) {
-        mUserModel = userModel;
+    public void setUser(User user) {
+        mUser = user;
     }
 
 }

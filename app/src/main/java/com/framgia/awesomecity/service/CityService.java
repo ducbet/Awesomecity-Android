@@ -3,7 +3,7 @@ package com.framgia.awesomecity.service;
 import com.framgia.awesomecity.data.model.Dish;
 import com.framgia.awesomecity.data.model.Order;
 import com.framgia.awesomecity.data.model.OrderDish;
-import com.framgia.awesomecity.data.model.TableModel;
+import com.framgia.awesomecity.data.model.Table;
 
 import java.util.List;
 
@@ -35,10 +35,10 @@ public interface CityService {
     Observable<Boolean> cancelOrderDish(@Path("tableId") int orderId, @Body OrderDish orderDish);
 
     @GET("tables")
-    Observable<List<TableModel>> getTables();
+    Observable<List<Table>> getTables();
 
     @GET("tables/{tableId")
-    Observable<TableModel> getTable(@Path("tableId") int tableId);
+    Observable<Table> getTable(@Path("tableId") int tableId);
 
     @GET("dishes")
     Observable<List<Dish>> getDishes();

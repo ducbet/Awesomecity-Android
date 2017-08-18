@@ -1,6 +1,6 @@
 package com.framgia.awesomecity.data.source;
 
-import com.framgia.awesomecity.data.model.TableModel;
+import com.framgia.awesomecity.data.model.Table;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import io.reactivex.Observable;
 
 public interface TablesDataSource {
 
-    Observable<List<TableModel>> getTables();
+    Observable<List<Table>> getTables();
 
-    Observable<TableModel> getTable(int tableId);
+    Observable<Table> getTable(int tableId);
 }

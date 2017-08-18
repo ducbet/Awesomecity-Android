@@ -25,6 +25,18 @@ public class Dish {
     @SerializedName("updated_at")
     private String mUpdatedAt;
 
+    public Dish(int id, String name, double price, String image, String description,
+                boolean isAvailable, String createdAt, String updatedAt) {
+        mId = id;
+        mName = name;
+        mPrice = price;
+        mImage = image;
+        mDescription = description;
+        mIsAvailable = isAvailable;
+        mCreatedAt = createdAt;
+        mUpdatedAt = updatedAt;
+    }
+
     public int getId() {
         return mId;
     }

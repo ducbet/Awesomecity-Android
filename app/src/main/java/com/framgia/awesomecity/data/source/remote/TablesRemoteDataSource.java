@@ -1,6 +1,6 @@
 package com.framgia.awesomecity.data.source.remote;
 
-import com.framgia.awesomecity.data.model.TableModel;
+import com.framgia.awesomecity.data.model.Table;
 import com.framgia.awesomecity.data.source.TablesDataSource;
 import com.framgia.awesomecity.service.CityService;
 import com.framgia.awesomecity.service.ServiceGenerator;
@@ -22,12 +22,12 @@ public class TablesRemoteDataSource implements TablesDataSource {
     }
 
     @Override
-    public Observable<List<TableModel>> getTables() {
+    public Observable<List<Table>> getTables() {
         return mCityService.getTables();
     }
 
     @Override
-    public Observable<TableModel> getTable(int tableId) {
+    public Observable<Table> getTable(int tableId) {
         return mCityService.getTable(tableId);
     }
 }
