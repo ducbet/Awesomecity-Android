@@ -18,7 +18,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new MainViewModel();
+        mViewModel = new MainViewModel(this);
 
         MainContract.Presenter presenter =
                 new MainPresenter(mViewModel);
