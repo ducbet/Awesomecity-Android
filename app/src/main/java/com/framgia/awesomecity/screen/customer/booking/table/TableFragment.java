@@ -1,4 +1,4 @@
-package com.framgia.awesomecity.screen.customer.booking;
+package com.framgia.awesomecity.screen.customer.booking.table;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,27 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.framgia.awesomecity.R;
-import com.framgia.awesomecity.databinding.FragmentBookingCustomerBinding;
+import com.framgia.awesomecity.databinding.FragmentTableCustomerBinding;
 import com.framgia.awesomecity.screen.BaseFragment;
 
 /**
- * Booking Screen.
+ * Table Screen.
  */
-public class BookingFragment extends BaseFragment {
+public class TableFragment extends BaseFragment {
 
-    private BookingContract.ViewModel mViewModel;
+    private TableContract.ViewModel mViewModel;
 
-    public static BookingFragment newInstance() {
-        return new BookingFragment();
+    public static TableFragment newInstance() {
+        return new TableFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new BookingViewModel(getContext());
+        mViewModel = new TableViewModel();
 
-        BookingContract.Presenter presenter =
-                new BookingPresenter(mViewModel);
+        TableContract.Presenter presenter =
+                new TablePresenter(mViewModel);
         mViewModel.setPresenter(presenter);
     }
 
@@ -36,10 +36,10 @@ public class BookingFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        FragmentBookingCustomerBinding binding =
+        FragmentTableCustomerBinding binding =
                 DataBindingUtil.inflate(inflater,
-                        R.layout.fragment_booking_customer, container, false);
-        binding.setViewModel((BookingViewModel) mViewModel);
+                        R.layout.fragment_table_customer, container, false);
+        binding.setViewModel((TableViewModel) mViewModel);
         return binding.getRoot();
     }
 
