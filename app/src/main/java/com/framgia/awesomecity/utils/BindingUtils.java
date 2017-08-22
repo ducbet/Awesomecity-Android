@@ -9,10 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
-
 import com.framgia.awesomecity.R;
 import com.squareup.picasso.Picasso;
-
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 

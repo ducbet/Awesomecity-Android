@@ -8,4 +8,8 @@
     <string name="item_book_table">Book Table</string>
     <string name="item_menu">Menu</string>
     <string name="item_your_order">Your Order</string>
+    <string name="text_capacity">Capacity</string>
+    <string name="text_date">Date</string>
+    <string name="text_time">Time</string>
+    <string name="text_to_table">Go to Table Select</string>
 </resources>
