@@ -1,4 +1,4 @@
-package com.framgia.awesomecity.screen.customer.booking;
+package com.framgia.awesomecity.screen.customer.booking.dishes;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,27 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.framgia.awesomecity.R;
-import com.framgia.awesomecity.databinding.FragmentBookingCustomerBinding;
+import com.framgia.awesomecity.databinding.FragmentDishesCustomerBinding;
 import com.framgia.awesomecity.screen.BaseFragment;
 
 /**
- * Booking Screen.
+ * Dishes Screen.
  */
-public class BookingFragment extends BaseFragment {
+public class DishesFragment extends BaseFragment {
 
-    private BookingContract.ViewModel mViewModel;
+    private DishesContract.ViewModel mViewModel;
 
-    public static BookingFragment newInstance() {
-        return new BookingFragment();
+    public static DishesFragment newInstance() {
+        return new DishesFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new BookingViewModel(getContext());
+        mViewModel = new DishesViewModel();
 
-        BookingContract.Presenter presenter =
-                new BookingPresenter(mViewModel);
+        DishesContract.Presenter presenter =
+                new DishesPresenter(mViewModel);
         mViewModel.setPresenter(presenter);
     }
 
@@ -36,10 +36,10 @@ public class BookingFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        FragmentBookingCustomerBinding binding =
+        FragmentDishesCustomerBinding binding =
                 DataBindingUtil.inflate(inflater,
-                        R.layout.fragment_booking_customer, container, false);
-        binding.setViewModel((BookingViewModel) mViewModel);
+                        R.layout.fragment_dishes_customer, container, false);
+        binding.setViewModel((DishesViewModel) mViewModel);
         return binding.getRoot();
     }
 

@@ -40,8 +40,10 @@ public class OrderDishesFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentDishesBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dishes, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        FragmentDishesBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.fragment_dishes_customer, container, false);
         View view = binding.getRoot();
         binding.setViewModel((OrderDishesViewModel)mViewModel);
         return view;

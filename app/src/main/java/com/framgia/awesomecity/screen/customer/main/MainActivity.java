@@ -4,7 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
 import com.framgia.awesomecity.R;
-import com.framgia.awesomecity.databinding.ActivityMainBinding;
+import com.framgia.awesomecity.databinding.ActivityMainCustomerBinding;
 import com.framgia.awesomecity.screen.BaseActivity;
 
 /**
@@ -24,8 +24,8 @@ public class MainActivity extends BaseActivity {
                 new MainPresenter(mViewModel);
         mViewModel.setPresenter(presenter);
 
-        ActivityMainBinding binding =
-                DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainCustomerBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_main_customer);
         binding.setViewModel((MainViewModel) mViewModel);
     }
 
