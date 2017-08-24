@@ -1,4 +1,5 @@
 package com.framgia.awesomecity.screen.customer.booking;
+
 /**
  * Listens to user actions from the UI ({@link BookingFragment}), retrieves the data and updates
  * the UI as required.

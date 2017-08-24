@@ -37,7 +37,7 @@ public interface CityService {
     @GET("tables")
     Observable<List<Table>> getTables();
 
-    @GET("tables/{tableId")
+    @GET("tables/{tableId}")
     Observable<Table> getTable(@Path("tableId") int tableId);
 
     @GET("dishes")
