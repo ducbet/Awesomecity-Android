@@ -22,7 +22,6 @@ import java.util.Locale;
 /**
  * Exposes the data to be used in the Booking screen.
  */
-
 public class BookingViewModel extends BaseObservable implements BookingContract.ViewModel {
     private BookingContract.Presenter mPresenter;
     private static final String TAG = "BookingViewModel";
@@ -81,46 +80,46 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     }
 
     public void onButtonClicked(View button) {
-
+        // TODO: 24/08/2017  
     }
 
     public void showDatePicker(View view) {
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog pickerDialog = new DatePickerDialog(mContext,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-                        String timeString = year + "-" + month + "-" + day;
-                        try {
-                            Date date = dateFormat.parse(timeString);
-                            setDate(dateFormat.format(date));
-                        } catch (ParseException e) {
-                            Log.e(TAG, Values.ERROR_DATE_TIME);
-                        }
+            new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                    String timeString = year + "-" + month + "-" + day;
+                    try {
+                        Date date = dateFormat.parse(timeString);
+                        setDate(dateFormat.format(date));
+                    } catch (ParseException e) {
+                        Log.e(TAG, Values.ERROR_DATE_TIME);
                     }
-                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH));
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH));
         pickerDialog.show();
     }
 
     public void showTimePicker(View view) {
         Calendar calendar = Calendar.getInstance();
         TimePickerDialog pickerDialog = new TimePickerDialog(mContext,
-                new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
-                        String dateString = hour + ":" + minute;
-                        try {
-                            Date date = timeFormat.parse(dateString);
-                            setTime(timeFormat.format(date));
-                        } catch (ParseException e) {
-                            Log.e(TAG, Values.ERROR_DATE_TIME);
-                        }
+            new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                    SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
+                    String dateString = hour + ":" + minute;
+                    try {
+                        Date date = timeFormat.parse(dateString);
+                        setTime(timeFormat.format(date));
+                    } catch (ParseException e) {
+                        Log.e(TAG, Values.ERROR_DATE_TIME);
                     }
-                },
-                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+                }
+            },
+            calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
         pickerDialog.show();
     }
 }
