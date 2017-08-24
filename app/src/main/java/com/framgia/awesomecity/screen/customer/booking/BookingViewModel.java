@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
-import com.android.databinding.library.baseAdapters.BR;
+import com.framgia.awesomecity.BR;
+import com.framgia.awesomecity.screen.customer.main.MainContract;
+import com.framgia.awesomecity.screen.customer.main.MainViewModel;
 import com.framgia.awesomecity.utils.Values;
 
 import java.text.ParseException;
@@ -29,9 +31,11 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     private String mDate;
     private String mTime;
     private Context mContext;
+    private MainContract.ViewModel mMainViewModel;
 
-    public BookingViewModel(Context context) {
-        mContext = context;
+    public BookingViewModel(MainContract.ViewModel mainViewModel) {
+        mMainViewModel = mainViewModel;
+        mContext = ((MainViewModel) mainViewModel).getActivity();
     }
 
     @Override
@@ -80,7 +84,7 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     }
 
     public void onButtonClicked(View button) {
-        // TODO: 24/08/2017  
+        mMainViewModel.onOpenTableFragment();
     }
 
     public void showDatePicker(View view) {
