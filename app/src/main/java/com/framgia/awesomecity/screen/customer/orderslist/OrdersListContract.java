@@ -1,6 +1,4 @@
-package com.framgia.awesomecity.screen.customer.main;
-
-import android.support.annotation.IdRes;
+package com.framgia.awesomecity.screen.customer.orderslist;
 
 import com.framgia.awesomecity.screen.BasePresenter;
 import com.framgia.awesomecity.screen.BaseViewModel;
@@ -8,13 +6,11 @@ import com.framgia.awesomecity.screen.BaseViewModel;
 /**
  * This specifies the contract between the view and the presenter.
  */
-interface MainContract {
+interface OrdersListContract {
     /**
      * View.
      */
     interface ViewModel extends BaseViewModel<Presenter> {
-        void onItemSelected(@IdRes int id);
-
     }
 
     /**

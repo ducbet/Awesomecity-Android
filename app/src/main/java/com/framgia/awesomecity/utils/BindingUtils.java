@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import com.framgia.awesomecity.R;
+import com.framgia.awesomecity.screen.customer.main.MainViewModel;
 import com.squareup.picasso.Picasso;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -27,15 +28,17 @@ public class BindingUtils {
                 DividerItemDecoration.VERTICAL));
     }
 
-    @BindingAdapter({"drawerLayout"})
+    @BindingAdapter({"drawerLayout", "viewModel"})
     public static void onNavigationItemSelected(final NavigationView navigationView,
-                                                final DrawerLayout drawerLayout) {
+                                                final DrawerLayout drawerLayout,
+                                                final MainViewModel viewModel) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         item.setChecked(true);
                         drawerLayout.closeDrawer(navigationView);
+                        viewModel.onItemSelected(item.getItemId());
                         return true;
                     }
                 });
