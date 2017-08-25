@@ -1,5 +1,6 @@
 package com.framgia.awesomecity.screen.customer.booking.table;
 
+import com.framgia.awesomecity.data.model.Table;
 import com.framgia.awesomecity.screen.BasePresenter;
 import com.framgia.awesomecity.screen.BaseViewModel;
 
@@ -11,6 +12,7 @@ interface TableContract {
      * View.
      */
     interface ViewModel extends BaseViewModel<Presenter> {
+        void onClickTable(Table table);
     }
 
     /**

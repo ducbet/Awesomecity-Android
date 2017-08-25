@@ -9,13 +9,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.framgia.awesomecity.R;
+import com.framgia.awesomecity.data.model.Table;
 import com.framgia.awesomecity.screen.customer.booking.BookingFragment;
+import com.framgia.awesomecity.screen.customer.booking.table.TableFragment;
 import com.framgia.awesomecity.screen.customer.orderslist.OrdersListFragment;
 
 /**
  * Exposes the data to be used in the Main screen.
  */
-
 public class MainViewModel extends BaseObservable implements MainContract.ViewModel {
     private MainContract.Presenter mPresenter;
     private AppCompatActivity mActivity;
@@ -27,7 +28,7 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
     @Override
     public void onStart() {
         mPresenter.onStart();
-        setFragment();
+        onOpenBookingFragment();
     }
 
     @Override
@@ -53,12 +54,27 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
         mActivity = activity;
     }
 
-    public void setFragment() {
+    @Override
+    public void onOpenBookingFragment() {
         Fragment fragment = new BookingFragment();
         mActivity.getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.frame_container, fragment)
-                .commit();
+            .beginTransaction()
+            .add(R.id.frame_container, fragment)
+            .commit();
+    }
+
+    @Override
+    public void onOpenTableFragment() {
+        Fragment fragment = TableFragment.newInstance(this);
+        mActivity.getSupportFragmentManager()
+            .beginTransaction()
+            .add(R.id.frame_container, fragment)
+            .commit();
+    }
+
+    @Override
+    public void onOpenDishesFragment(Table table) {
+        // TODO: 24/08/2017
     }
 
     @Override
