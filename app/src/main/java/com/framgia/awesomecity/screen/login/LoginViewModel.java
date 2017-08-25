@@ -1,6 +1,5 @@
 package com.framgia.awesomecity.screen.login;
 
-
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -8,17 +7,15 @@ import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.framgia.awesomecity.data.model.LoginModel;
+import com.framgia.awesomecity.data.model.Restaurant;
 import com.framgia.awesomecity.data.model.User;
 import com.framgia.awesomecity.utils.Values;
 
 /**
  * Exposes the data to be used in the Login screen.
  */
-
 public class LoginViewModel extends BaseObservable implements LoginContract.ViewModel {
-
     private LoginContract.Presenter mPresenter;
-
     private Context mContext;
     private String mErrorMessage;
     private String mUsername;
@@ -31,6 +28,7 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
     @Override
     public void onStart() {
         mPresenter.onStart();
+        mPresenter.getRestaurant();
     }
 
     @Override
@@ -80,7 +78,6 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
     public void onLoginFailWrong() {
         setErrorMessage(Values.LOGIN_FAIL_WRONG);
         notifyPropertyChanged(BR.errorMessage);
-
     }
 
     @Override
@@ -89,8 +86,15 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
         notifyPropertyChanged(BR.errorMessage);
     }
 
+    @Override
+    public void onGetRestaurantSuccess(Restaurant restaurant) {
+    }
+
+    @Override
+    public void onGetRestaurantFailed(Throwable throwable) {
+    }
+
     public void onLoginButtonClicked(View view) {
         mPresenter.login(new LoginModel(new User(mUsername, mPassword)));
     }
-
 }

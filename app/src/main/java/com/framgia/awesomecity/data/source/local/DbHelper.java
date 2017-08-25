@@ -16,6 +16,8 @@ public class DbHelper {
 
     public static final String INTEGER_TYPE = " INTEGER";
 
+    public static final String DOUBLE_TYPE = " DOUBLE";
+
     public static final String COMMA_SEP = ",";
 
 }

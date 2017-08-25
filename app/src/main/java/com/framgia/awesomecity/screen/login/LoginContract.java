@@ -1,7 +1,7 @@
 package com.framgia.awesomecity.screen.login;
 
-
 import com.framgia.awesomecity.data.model.LoginModel;
+import com.framgia.awesomecity.data.model.Restaurant;
 import com.framgia.awesomecity.screen.BasePresenter;
 import com.framgia.awesomecity.screen.BaseViewModel;
 
@@ -16,6 +16,8 @@ interface LoginContract {
         void onLoginFailConnection();
         void onLoginFailWrong();
         void onLoginSuccess(String token);
+        void onGetRestaurantSuccess(Restaurant restaurant);
+        void onGetRestaurantFailed(Throwable throwable);
     }
 
     /**
@@ -23,5 +25,6 @@ interface LoginContract {
      */
     interface Presenter extends BasePresenter {
         void login(LoginModel signin);
+        void getRestaurant();
     }
 }
