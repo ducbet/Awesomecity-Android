@@ -8,11 +8,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.framgia.awesomecity.BR;
 import com.framgia.awesomecity.R;
 import com.framgia.awesomecity.data.model.Table;
 import com.framgia.awesomecity.screen.customer.booking.BookingFragment;
 import com.framgia.awesomecity.screen.customer.booking.table.TableFragment;
 import com.framgia.awesomecity.screen.customer.orderslist.OrdersListFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Exposes the data to be used in the Main screen.
@@ -20,14 +24,20 @@ import com.framgia.awesomecity.screen.customer.orderslist.OrdersListFragment;
 public class MainViewModel extends BaseObservable implements MainContract.ViewModel {
     private MainContract.Presenter mPresenter;
     private AppCompatActivity mActivity;
+    private List<Table> mTables = new ArrayList<>();
 
     public MainViewModel(AppCompatActivity activity) {
         mActivity = activity;
     }
 
+    public List<Table> getTables() {
+        return mTables;
+    }
+
     @Override
     public void onStart() {
         mPresenter.onStart();
+        mPresenter.getTables();
         onOpenBookingFragment();
     }
 
@@ -56,7 +66,7 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
 
     @Override
     public void onOpenBookingFragment() {
-        Fragment fragment = new BookingFragment();
+        Fragment fragment = BookingFragment.newInstance(this);
         mActivity.getSupportFragmentManager()
             .beginTransaction()
             .add(R.id.frame_container, fragment)
@@ -75,6 +85,16 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
     @Override
     public void onOpenDishesFragment(Table table) {
         // TODO: 24/08/2017
+    }
+
+    @Override
+    public void onGetTablesSuccess(List<Table> tables) {
+        mTables = tables;
+        notifyPropertyChanged(BR.tables);
+    }
+
+    @Override
+    public void onGetTablesFailed(String e) {
     }
 
     @Override
